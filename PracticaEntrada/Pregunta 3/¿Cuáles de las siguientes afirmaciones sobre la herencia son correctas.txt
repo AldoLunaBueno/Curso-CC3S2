@@ -1,0 +1,74 @@
+3 ¿Cuáles de las siguientes afirmaciones sobre la herencia son correctas?. Explica tu respuesta (2
+puntos)
+
+a) Una clase puede extender directamente cualquier número de clases.
+b) Una clase puede implementar cualquier número de interfaces.
+c) Todas las variables heredan java.lang.Object.
+d) Si la clase A se extiende por B, entonces B es una superclase de A.
+e) Si la clase C implementa la interfaz D, entonces C es un subtipo de D.
+f) La herencia múltiple es la propiedad de una clase de tener múltiples superclases directas.
+
+
+
+RESPUESTAS
+
+a) Una clase puede extender directamente cualquier número de clases.
+
+No es correcto. Una clase propiamente solo puede extender una superclase (otra clase). Hay otros lenguajes
+que sí permiten la herencia múltiple, como C++ o Python, pero en Java se impone la restricción de herencia simple.
+A pesar de que pueda parecer una limitación, esta característica es en realidad una ventaja
+si quieres que tu producto de software escale y sea más y más complejo.
+Los sistemas complejos necesitan restricciones fuertes para ser funcionales.
+
+
+
+b) Una clase puede implementar cualquier número de interfaces.
+
+Correcto. La sintaxis, conjuntamente con la extensión de superclases, es como se muestra a continuación:
+
+class MiClase extends SoloUnaSuperclase implements MiInterface1, MiInterface2... { // Campos y métodos }
+
+
+
+c) Todas las variables heredan java.lang.Object.
+
+No es correcto. Las variables que heredan la clase java.lang.Object, si no es demasiado incorrecto decirlo así,
+son variables no primitivas, es decir, se declaran a partir de una clase. Sintaxis:
+
+MiClase MiVariableNoPrimitiva;
+
+Las variables primitivas, en cambio, se declaran con estos tipos de datos primitivos
+que empiezan con minúscula: int, float, double, bool... Sintaxis:
+
+int variablePrimitiva;
+
+Hay clases que funcionan como envoltorios para estos tipos de datos primitivos: Integer, Float, Double, Boolean...
+Si se usan estas clases en vez de los tipos de datos primitivos para declarar una variable,
+entonces esta sería una variable no primitiva, y sí heredaría la clase java.lang.Object. Ejemplo:
+
+Integer variableNoPrimitiva;
+
+Esto es porque toda clase hereda explícita o implícitamente la clase java.lang.Object, y al parecer
+se puede decir que una variable hereda una clase B si es declarada a partir de una clase A que hereda la clase B
+(donde B puede ser java.lang.Object u otra clase más abajo en la cadena de herencias).
+
+
+
+d) Si la clase A se extiende por B, entonces B es una superclase de A.
+
+Correcto. Si la clase A extiende la clase B, entonces B es la superclase o clase padre de A,
+como se venía diciendo en las anteriores respuestas.
+
+
+e) Si la clase C implementa la interfaz D, entonces C es un subtipo de D.
+
+Correcto. La subtificación es la herencia de interfaz (el tipo), es decir, la implementación de una interfaz.
+
+
+
+f) La herencia múltiple es la propiedad de una clase de tener múltiples superclases directas.
+
+Correcto. Y no existe en Java, como se comentó en la pregunta (a). La herencia de interfaces se le parece,
+pero no es lo mismo. Hay una forma de hacer que las interfaces parezcan clases: mediante los métodos default.
+Un método default en una interfaz es un método que se puede implementar dentro de la interfaz.
+Las interfaces solo podían contener las firmas de los métodos, pero esta novedad que vino con Java 8 rompe eso.
