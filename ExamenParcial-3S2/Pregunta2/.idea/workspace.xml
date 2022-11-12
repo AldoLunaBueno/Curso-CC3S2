@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8aabd69d-17c2-44d2-9e0e-8a4795c174d3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Pregunta1/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pregunta1/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pregunta1/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pregunta1/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pregunta1/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pregunta1/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Pregunta1/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Anterior/Produccion/Airport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Anterior/Produccion/Flight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Anterior/Produccion/Passenger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase1/Produccion/Airport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase1/Produccion/Flight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase1/Produccion/Passenger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase1/Pruebas/AirportTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase2/Produccion/BusinessFlight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase2/Produccion/EconomyFlight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase2/Produccion/Flight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase2/Produccion/Passenger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase2/Pruebas/AirportTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase3/Produccion/BusinessFlight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase3/Produccion/EconomyFlight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase3/Produccion/Flight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase3/Produccion/Passenger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase3/Pruebas/AirportTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase4/Produccion/BusinessFlight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase4/Produccion/EconomyFlight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase4/Produccion/Flight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase4/Produccion/Passenger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase4/Produccion/PremiumFlight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase4/Pruebas/AirportTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase5/Produccion/BusinessFlight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase5/Produccion/EconomyFlight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase5/Produccion/Flight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase5/Produccion/Passenger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase5/Produccion/PremiumFlight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Fase5/Pruebas/AirportTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HQOSGbxcE85KOoVCnqk0dKCeOL" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/USER/Documents/GitHub/Curso-CC3S2/ExamenParcial-3S2/Pregunta2&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8aabd69d-17c2-44d2-9e0e-8a4795c174d3" name="Changes" comment="" />
+      <created>1668213838652</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668213838652</updated>
+      <workItem from="1668213839798" duration="214000" />
+      <workItem from="1668214114936" duration="108000" />
+      <workItem from="1668214265901" duration="73000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
