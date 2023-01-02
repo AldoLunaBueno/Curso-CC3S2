@@ -6,7 +6,7 @@ https://docs.docker.com/engine/install/ubuntu/#set-up-the-repository
 
 En el siguiente gif se verifica que la instalación de Docker ha sido exitosa mediante el hola mundo de Docker:
 
-![](imgs_n_gifs\DockerInstalled.gif)
+![](imgs_n_gifs/DockerInstalled.gif)
 
 Como se puede apreciar en el gif, incluso un comando tan simple de Docker como su «hola mundo» necesita anteponer la palabra clave «sudo»:
 
