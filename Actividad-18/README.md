@@ -6,6 +6,15 @@
   - [Docker commit](#docker-commit)
   - [Dockerfile](#dockerfile)
   - [Aplicación Docker completa](#aplicación-docker-completa)
+  - [Variables de entorno](#variables-de-entorno)
+  - [Estados del contendor docker](#estados-del-contendor-docker)
+- [Redes Docker](#redes-docker)
+  - [Servicios en uso](#servicios-en-uso)
+  - [Redes de contenedores](#redes-de-contenedores)
+  - [Asignación automática de puertos](#asignación-automática-de-puertos)
+- [Volumenes Docker](#volumenes-docker)
+- [Uso de nombres en Docker](#uso-de-nombres-en-docker)
+- [Limpieza de contenedores](#limpieza-de-contenedores)
 - [Documentación de los comandos que usamos obtenida mediante _\<command\> --help_](#documentación-de-los-comandos-que-usamos-obtenida-mediante-command---help)
 
 
@@ -121,12 +130,12 @@ Finalmente, comprobamos que la imagen ha sido creada con `docker images`:
 
 ### Aplicación Docker completa
 
-Para construir la aplicación hola.py en un contenedor necesitamos responder estas preguntas:
+Vamos a construir una aplicación con un programa simple de python dentro (hola.py) como una imagen docker y luego iniciaremos esta aplicación para ejecutar el programa. Para hacerlo necesitamos responder estas preguntas:
 
 * ¿Qué imagen base debe usarse?
 * ¿Cómo instalar el intérprete de Python?
 * ¿Cómo incluir hola.py en la imagen ?
-* ¿Cómo iniciar la aplicación ?
+* ¿Cómo iniciar la aplicación?
 
 ![](imgs_n_gifs/2023-01-03-23-24-17.png)
 
@@ -143,6 +152,110 @@ Puesto que la imagen que habíamos creado tiene una copia de nuestra aplicación
 
 ![](imgs_n_gifs/2023-01-03-23-48-15.png)
 
+### Variables de entorno
+
+Editamos el código del _hola mundo_ de python:
+
+![](imgs_n_gifs/2023-01-04-13-26-23.png)
+
+Construimos la imagen, instanciamos un contenedor pasándole la variable NAME y la aplicación imprime un mensaje usando el valor de la variable que le pasamos:
+
+![](imgs_n_gifs/2023-01-04-13-32-39.png)
+![](imgs_n_gifs/2023-01-04-13-32-14.png)
+
+Alternativamente, podemos editar el Dockerfile para que la variable NAME sea por defecto _Ako_.
+
+![](imgs_n_gifs/2023-01-04-13-42-26.png)
+
+![](imgs_n_gifs/2023-01-04-13-44-54.png)
+
+Pero el valor de esta variable se puede cambiar como hicimos antes:
+
+![](imgs_n_gifs/2023-01-04-13-48-14.png)
+
+### Estados del contendor docker
+
+Ahora queremos ejecutar una aplicación en segundo plano como un servidor (o como demonio). Esto lo conseguimos con la opción `-d` o `--detach`, que en inglés significa ‘despegar’ o ‘separar’.
+
+![](imgs_n_gifs/2023-01-04-13-53-26.png)
+
+Con el comando `docker ps -a` podemos ver todos los contenedores, incluso de los que ya se salió:
+
+![](imgs_n_gifs/2023-01-04-14-05-55.png)
+
+El siguiente diagrama muestra todos los estados de un contendor y las transiciones posibles entre ellos:
+
+![](imgs_n_gifs/2023-01-04-14-07-20.png)
+
+Vamos a detener el contenedor de Ubuntu que creamos como servidor:
+
+![](imgs_n_gifs/2023-01-04-14-11-05.png)
+
+En vez de usar su ID usamos su nombre aleatorio que se autogeneró porque así aprovechamos el autocompletado (tecla TAB) y vamos más rápido.
+
+## Redes Docker
+
+> Si queremos ejecutar un sitio web, un servicio web, una base de datos o un servidor de caché dentro de un contenedor Docker, primero debemos comprender cómo ejecutar un servicio y **exponer su puerto** a otras aplicaciones.
+
+### Servicios en uso
+
+Corremos la aplicación TomCat como demonio y verificamos que no tenga errores viendo sus logs:
+
+![](imgs_n_gifs/2023-01-04-14-28-28.png)
+![](imgs_n_gifs/2023-01-04-14-28-02.png)
+
+Pero no podemos este contenedor como servidor porque no hemos especificado los puertos de comunicación. Entonces, lo detenemos y creamos uno nuevo:
+
+![](imgs_n_gifs/2023-01-04-14-41-04.png)
+
+Abrimos en el navegador el host local en el puerto 8080 y vemos una interfaz de Tomcat, pero en la página dice  _Not found_:
+
+![](imgs_n_gifs/2023-01-04-14-47-37.png)
+
+### Redes de contenedores
+
+Comrobamos que Docker tiene una interfaz de red llamada _docker0_ con el comando `ifconfig`:
+
+![](imgs_n_gifs/2023-01-04-14-58-28.png)
+
+Inspeccionamos el contenedor tomcat que habíamos creado con `docker inspect <container_name>`. Nos interesa en este momento su configuiración de red (NetworkSettings):
+
+![](imgs_n_gifs/2023-01-04-15-04-39.png)
+
+Las redes en Docker se pueden administrar con `docker network <command>`. Aquí listamos las redes con `docker network -ls`:
+
+![](imgs_n_gifs/2023-01-04-17-42-47.png)
+
+En la actividad se nos dice que hay tres tipos de red: none, host y bridge. Sin embargo, al haber instalado Minicube aparece una cuarta opción en mi caso: minicube. (¿Por qué?)
+
+### Asignación automática de puertos
+
+A continuación intentamos crear otro contenedor tomcat con el mismo puerto 8080, pero nos sale un error porque obviamente ya está reservado para el anterior contenedor. Por eso dejamos que Docker elija automáticamente qué puerto usar, y en nuestro caso resulta siendo el puerto 32768:
+
+![](imgs_n_gifs/2023-01-04-18-05-36.png)
+
+## Volumenes Docker
+
+Vamos a ver cómo proporcionar una capa de **persistencia** a nuestros contenedores mediante volúmenes Docker.
+
+![](imgs_n_gifs/2023-01-04-18-31-57.png)
+
+## Uso de nombres en Docker
+
+Para crear un contenedor con un nombre elegido por nosotros se usa el parámetro `--name` en el siguiente comando:
+
+```
+docker run [opt] --name <container_name> <image_name>
+```
+
+![](imgs_n_gifs/2023-01-04-18-44-02.png)
+
+También se le puede dar nombre a una imágen, pero no se le dice nombre sino etiqueta. Ya se ha etiquetado una imagen antes, por ejemplo, con el nombre _hola_mundo_python_.
+
+
+## Limpieza de contenedores
+
+
 
 
 
@@ -154,17 +267,17 @@ Puesto que la imagen que habíamos creado tiene una copia de nuestra aplicación
     Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
     Run a command in a new container
     Options:
-    -i, --interactive                    Keep STDIN open even if not
-                                        attached      
-    -t, --tty                            Allocate a pseudo-TTY  
+    -i, --interactive                    Keep STDIN open even if not attached      
+    -t, --tty                            Allocate a pseudo-TTY
+    -e, --env list                       Set environment variables
+    -d, --detach                         Run container in background and print container ID</pre>
     ```
 * exec
     ```
     Usage:  docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
     Run a command in a running container
     Options:
-    -i, --interactive                    Keep STDIN open even if not
-                                       attached
+    -i, --interactive                    Keep STDIN open even if not attached
     -t, --tty                            Allocate a pseudo-TTY    
     ```
 * commit
@@ -177,4 +290,34 @@ Puesto que la imagen que habíamos creado tiene una copia de nuestra aplicación
     Usage:  docker build [OPTIONS] PATH | URL | -
     Build an image from a Dockerfile
     ```
+* ps
+    ```
+    Usage:  docker ps [OPTIONS]
+    List containers
+    Options:
+    -a, --all             Show all containers (default shows just running)
+    ```
+* stop
+    ```
+    Usage:  docker stop [OPTIONS] CONTAINER [CONTAINER...]
+    Stop one or more running containers
+    ```
+* network
+    ```
+    Usage:  docker network COMMAND
+    Manage networks
+    Commands:
+        connect     Connect a container to a network
+        create      Create a network
+        disconnect  Disconnect a container from a network
+        inspect     Display detailed information on one or more networks
+        ls          List networks
+        prune       Remove all unused networks
+        rm          Remove one or more networks
+    ```
+
+
+
+
+
 
