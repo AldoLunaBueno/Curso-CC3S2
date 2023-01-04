@@ -4,6 +4,8 @@
 - [Ejecutando la aplicación Docker de MongoDB](#ejecutando-la-aplicación-docker-de-mongodb)
 - [Creación de imágenes de Docker](#creación-de-imágenes-de-docker)
   - [Docker commit](#docker-commit)
+  - [Dockerfile](#dockerfile)
+  - [Aplicación Docker completa](#aplicación-docker-completa)
 - [Documentación de los comandos que usamos obtenida mediante _\<command\> --help_](#documentación-de-los-comandos-que-usamos-obtenida-mediante-command---help)
 
 
@@ -105,11 +107,41 @@ Si corremos ahora un contenedor a partir de la nueva imagen, deberíamos poder c
 
 ![](imgs_n_gifs/2023-01-03-21-46-34.png)
 
+### Dockerfile
+
+Podemos crear una imagen docker de forma automatizada a partir de un archivo de texto que contenga las instruciones que de otra forma tendríamos que ingresar manualmente en el terminal. Este archivo es el Dockerfile. 
+
+Lo creamos con este mismo nombre dentro de un directorio que podemos llamar igual que la imagen deseada, aunque no es necesario. Esto se explica en detalle en [esta página oficial de Docker](https://docs.docker.com/get-started/02_our_app/). Luego lo editamos para que contenga todas las instrucciones según la sintaxis que está documentada en [esta otra página oficial de Docker](https://docs.docker.com/engine/reference/builder/). Por último, ejecutamos el comando `docker build -t <image_name> .` y sí, el punto es parte del comando. (Es una forma abreviada de que en el comando se tome como parámetro PATH la dirección actual desde la que se ejecuta dicho comando).
+
+![](imgs_n_gifs/2023-01-03-22-44-22.png)
+
+Finalmente, comprobamos que la imagen ha sido creada con `docker images`:
+
+![](imgs_n_gifs/2023-01-03-22-58-20.png)
+
+### Aplicación Docker completa
+
+Para construir la aplicación hola.py en un contenedor necesitamos responder estas preguntas:
+
+* ¿Qué imagen base debe usarse?
+* ¿Cómo instalar el intérprete de Python?
+* ¿Cómo incluir hola.py en la imagen ?
+* ¿Cómo iniciar la aplicación ?
+
+![](imgs_n_gifs/2023-01-03-23-24-17.png)
+
+Faltó un punto al final de la línea `COPY hola.py` del Dockerfile y eso dio un error.
 
 
+Ahora ejecutamos la aplicación. Pero tenemos un problema con la codificación:
 
+![](imgs_n_gifs/2023-01-03-23-42-12.png)
 
+![](imgs_n_gifs/2023-01-03-23-44-29.png)
 
+Puesto que la imagen que habíamos creado tiene una copia de nuestra aplicación python, para que la modificación que hicimos tenga efecto debemos crear otra vez la imagen.
+
+![](imgs_n_gifs/2023-01-03-23-48-15.png)
 
 
 
@@ -117,16 +149,16 @@ Si corremos ahora un contenedor a partir de la nueva imagen, deberíamos poder c
 
 
 ## Documentación de los comandos que usamos obtenida mediante _\<command> --help_
-  * run
+* run
     ```
     Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
     Run a command in a new container
     Options:
     -i, --interactive                    Keep STDIN open even if not
-                                       attached      
+                                        attached      
     -t, --tty                            Allocate a pseudo-TTY  
     ```
-  * exec
+* exec
     ```
     Usage:  docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
     Run a command in a running container
@@ -135,9 +167,14 @@ Si corremos ahora un contenedor a partir de la nueva imagen, deberíamos poder c
                                        attached
     -t, --tty                            Allocate a pseudo-TTY    
     ```
-  * commit
+* commit
     ```
     Usage:  docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
     Create a new image from a container's changes
+    ```
+* build
+    ```
+    Usage:  docker build [OPTIONS] PATH | URL | -
+    Build an image from a Dockerfile
     ```
 
