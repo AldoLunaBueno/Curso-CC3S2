@@ -1,6 +1,12 @@
-# Actividad 19. Configuración de Jenkins
+# Actividad 20. Configuración de Jenkins
 
 ## Instalación a partir de una imagen Docker
+
+> En esta parte nos aseguraremos de que Jenkins sea tan fácil de usar como se muestra en el siguiente gif:
+
+![](imgs_n_gifs/jenkins_easy_access.gif)
+
+Primero instalamos la imagen de Jenkins en un directorio especialmente creado para este propósito:
 
 ![](imgs_n_gifs/2023-01-04-23-19-05.png)
 
