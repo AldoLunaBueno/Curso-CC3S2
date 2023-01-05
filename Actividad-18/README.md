@@ -1,4 +1,4 @@
-# Actividad 18 <!-- omit in toc -->
+# Actividad 18. Introducción a Docker <!-- omit in toc -->
 
 - [Instalación de Docker y su «hola mundo»](#instalación-de-docker-y-su-hola-mundo)
 - [Ejecutando la aplicación Docker de MongoDB](#ejecutando-la-aplicación-docker-de-mongodb)
@@ -14,8 +14,9 @@
   - [Asignación automática de puertos](#asignación-automática-de-puertos)
 - [Volumenes Docker](#volumenes-docker)
 - [Uso de nombres en Docker](#uso-de-nombres-en-docker)
-- [Limpieza de contenedores](#limpieza-de-contenedores)
-- [Documentación de los comandos que usamos obtenida mediante _\<command\> --help_](#documentación-de-los-comandos-que-usamos-obtenida-mediante-command---help)
+- [Limpieza en Docker](#limpieza-en-docker)
+- [Ejercicios](#ejercicios)
+- [Documentación de los comandos que usamos obtenida con la ayuda](#documentación-de-los-comandos-que-usamos-obtenida-con-la-ayuda)
 
 
 
@@ -204,7 +205,7 @@ Corremos la aplicación TomCat como demonio y verificamos que no tenga errores v
 ![](imgs_n_gifs/2023-01-04-14-28-28.png)
 ![](imgs_n_gifs/2023-01-04-14-28-02.png)
 
-Pero no podemos este contenedor como servidor porque no hemos especificado los puertos de comunicación. Entonces, lo detenemos y creamos uno nuevo:
+Pero no podemos usar este contenedor como servidor porque no hemos especificado los puertos de comunicación. Entonces, lo detenemos y creamos uno nuevo:
 
 ![](imgs_n_gifs/2023-01-04-14-41-04.png)
 
@@ -253,15 +254,34 @@ docker run [opt] --name <container_name> <image_name>
 También se le puede dar nombre a una imágen, pero no se le dice nombre sino etiqueta. Ya se ha etiquetado una imagen antes, por ejemplo, con el nombre _hola_mundo_python_.
 
 
-## Limpieza de contenedores
+## Limpieza en Docker
+
+Podemos limpiar los contenedores de dos sencillas formas:
+* Uno por uno (solo si está detenido): `docker rm <container_name>`
+
+* Todos los detenidos: `docker container prune` (prune ‘podar’)
+
+![](imgs_n_gifs/2023-01-04-19-42-05.png)
+
+La limpieza de contenedores libera espacio en memoria. Al final de la captura vemos que hemos liberado casi 150 MB. Considerando la cantidad de contenedores que hay, podemos decir que son muy ligeros.
+
+La limpieza de imagenes es muy similar a la limpieza de contenedores. Podemos limpiar las imágenes de dos sencillas formas:
+
+* Una por una: `docker rmi <image_name>`
+
+* Todas: `docker image prune` (prune ‘podar’)
+
+También se pueden limpiar volúmenes, pero eso no forma parte de la actividad.
+
+## Ejercicios
+
+(No puedo hacerlos todavía porque no manejo REST ni FLASK).
 
 
+## Documentación de los comandos que usamos obtenida con la ayuda
 
+Existe una página oficial de Docker que lista todos los comandos y cada uno tiene un hipervínculo que lleva a otra página que lo detalla. Pero yo listé solo lo que se usó en esta actividad según lo que sale al usar la ayuda (mediante _\<command> --help_):
 
-
-
-
-## Documentación de los comandos que usamos obtenida mediante _\<command> --help_
 * run
     ```
     Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
