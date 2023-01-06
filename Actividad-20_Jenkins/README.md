@@ -5,6 +5,8 @@
   - [Configuración inicial](#configuración-inicial)
 - [El «Hola, mundo» de Jenkins](#el-hola-mundo-de-jenkins)
 - [Arquitectura de Jenkins](#arquitectura-de-jenkins)
+- [Configuración de agentes permanentes](#configuración-de-agentes-permanentes)
+- [Prueba de agentes](#prueba-de-agentes)
 
 
 ## Instalación y configuración de Jenkins
@@ -59,3 +61,35 @@ Se muestra el Dashboard de Jenkins, con lo cual ya podemos usar la herramienta:
 
 Jenkins se sobrecarga rápido, así que a menos que que tu proyecto sea pequeños, no debe ejecutar ningún construcción de código fuente (como maestro), sino delegarlas a instancias del agente (esclavo).
 
+## Configuración de agentes permanentes
+
+> Los agentes son los nodos que no son nodos build-in (incorporados).
+
+![](imgs_n_gifs/2023-01-05-20-36-24.png)
+
+![](imgs_n_gifs/2023-01-05-20-50-53.png)
+
+![](imgs_n_gifs/2023-01-05-20-52-46.png)
+
+![](imgs_n_gifs/2023-01-05-20-54-14.png)
+
+![](imgs_n_gifs/2023-01-05-22-23-00.png)
+
+Creamos el agente _agent-1_:
+
+![](imgs_n_gifs/2023-01-05-21-04-08.png)
+
+
+**Notas:**
+* Se llama agente permanente porque Jenkins no provee un alto nivel de integración con estos agentes, como sí es el caso del provisionamiento dinámico.
+* Los _labels_ o _tags_ ‘etiquetas’ se usan para agrupar múltiples agentes dentro de un mismo grupo lógico.
+* El método de lanzamiento _Launch agent by connecting it to the controller_ permite a un agente conectarse al controlador Jenkins cuando esté listo. 
+* Built-In Node
+This is the Jenkins controller's built-in node. Builds running on this node will execute on the same system and as the same user as the Jenkins controller. This is appropriate e.g. for special jobs performing backups, but in general you should run builds on agents.
+
+## Prueba de agentes
+
+![](imgs_n_gifs/2023-01-05-21-41-02.png)
+![](imgs_n_gifs/2023-01-05-21-42-22.png)
+
+No pudimos observar dónde dice que esta tarea fue ejecutada por el agente.
