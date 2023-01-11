@@ -92,4 +92,17 @@ This is the Jenkins controller's built-in node. Builds running on this node will
 ![](imgs_n_gifs/2023-01-05-21-41-02.png)
 ![](imgs_n_gifs/2023-01-05-21-42-22.png)
 
-No pudimos observar dónde dice que esta tarea fue ejecutada por el agente.
+No pudimos observar dónde dice que esta tarea fue ejecutada por el agente. De hecho, en esta otra captura vemos que el agente está offline mientras el pipeline _hello world_ está en ejecución.
+
+![](imgs_n_gifs/2023-01-10-17-40-10.png)
+
+Cambiamos de fijo (50000) a aleatorio:
+
+![](imgs_n_gifs/2023-01-10-17-58-37.png)
+
+Este problema no se pudo resolver hasta el momento, así que se trabajará con el controlador maestro.
+
+
+
+
+

@@ -38,7 +38,7 @@ docker run -d -p 443:443 --restart=always --name registry -v `pwd`/auth:/auth -e
 
 ![](imgs_n_gifs/2023-01-06-07-09-10.png)
 
-### Realizamos un pushing de la imagen en el registro
+### Realizamos un pushing de la imagen hacia el registro
 
 ```
 docker login --username aldolunabueno --password *********
@@ -46,7 +46,7 @@ docker login --username aldolunabueno --password *********
 
 ![](imgs_n_gifs/2023-01-06-07-20-26.png)
 
-Ahora ya podemos hacer el push en el registro:
+Ahora ya podemos hacer el push hacia el registro:
 
 ```
 docker push aldolunabueno/ubuntu_with_python:1
@@ -54,11 +54,11 @@ docker push aldolunabueno/ubuntu_with_python:1
 
 ![](imgs_n_gifs/2023-01-06-07-23-46.png)
 
-Comprobamos en Docker Hub que efectivamente se publicó:
+Comprobamos en Docker Hub que efectivamente la imagen _ubuntu_with_python_ se publicó:
 
 ![](imgs_n_gifs/2023-01-06-07-25-34.png)
 
-### Realizamos un pulling de la imagen del registro
+### Realizamos un pulling de la imagen desde el registro
 
 Borramos la imagen:
 
@@ -79,4 +79,5 @@ Confirmamos que la imagen está de vuelta:
 ![](imgs_n_gifs/2023-01-06-07-33-16.png)
 
 
+## Pruebas de aceptación en el pipeline de Jenkins
 
